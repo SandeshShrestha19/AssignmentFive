@@ -14,8 +14,11 @@ class Program
         Console.WriteLine();
 
         Console.WriteLine("The sum of the two numbers is " + Addition(firstNum, secondNum));
+
         Console.WriteLine("The difference of the two numbers is " + Subtraction(firstNum, secondNum));
+
         Console.WriteLine("The product of the two numbers is " + Multiplication(firstNum, secondNum));
+
         Console.WriteLine("The division of the two numbers is " + Division(firstNum, secondNum));
 
         Console.ReadKey();
