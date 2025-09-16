@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
+
 
 class Program
 {
@@ -11,15 +11,7 @@ class Program
         Console.Write("Enter another number: ");
         double secondNum = Convert.ToDouble(Console.ReadLine());
 
-        Console.WriteLine();
-
-        Console.WriteLine("The sum of the two numbers is " + Addition(firstNum, secondNum));
-
-        Console.WriteLine("The difference of the two numbers is " + Subtraction(firstNum, secondNum));
-
-        Console.WriteLine("The product of the two numbers is " + Multiplication(firstNum, secondNum));
-
-        Console.WriteLine("The division of the two numbers is " + Division(firstNum, secondNum));
+        ShowResult(firstNum, secondNum);
 
         Console.ReadKey();
     }
@@ -40,6 +32,33 @@ class Program
         {
             Console.WriteLine("Error: Division by zero isn't possible!");
             return 0;
+        }
+    }
+    public static void ShowResult(double firstNum, double secondNum)
+    {
+
+        Console.Write("Choose an operator: +, -, *, / : ");
+        string choice = Console.ReadLine();
+
+        Console.WriteLine();
+
+        switch (choice)
+        {
+            case "+":
+                Console.WriteLine("Result: " + Addition(firstNum, secondNum));
+                break;
+            case "-":
+                Console.WriteLine("Result: " + Subtraction(firstNum, secondNum));
+                break;
+            case "*":
+                Console.WriteLine("Result: " + Multiplication(firstNum, secondNum));
+                break;
+            case "/":
+                Console.WriteLine("Result: " + Division(firstNum, secondNum));
+                break;
+            default:
+                Console.WriteLine("Invalid choice!");
+                break;
         }
     }
 }
