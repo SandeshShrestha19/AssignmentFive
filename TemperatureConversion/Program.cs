@@ -2,6 +2,7 @@
 
 class Program
 {
+    const double ValueForConversionOfKelvin = 273.15;
     static void Main(string[] args)
     {
         Console.Write("Enter one of the following number for respective conversion \n" +
@@ -14,45 +15,49 @@ class Program
 
         switch(choiceOfUser)
         {
-            case 1: CelsToFahr();
+            case 1:
+                CelsiusToFahrenheit();
                 break;
-            case 2: FahrToCels();
+            case 2:
+                FahrenheitToCelsius();
                 break;
-            case 3: CelsToKelv();
+            case 3:
+                CelsiusToKelvin();
                 break;
-            case 4: KelvToCels();
+            case 4:
+                KelvinToCelsius();
                 break;
             default: Console.WriteLine("Invalid input");
                 break;
         }
         Console.ReadLine();
     }
-    public static void CelsToFahr()
+    public static void CelsiusToFahrenheit()
     {
         double tempCels, tempFahr;
         tempCels = ReadTemperature("Celsius");
         tempFahr = (tempCels * 9 / 5) + 32;
         Console.WriteLine($"Celsius in Fahrenheit is {tempFahr}.");
     }
-    public static void FahrToCels()
+    public static void FahrenheitToCelsius()
     {
         double tempFahr, tempCels;
         tempFahr = ReadTemperature("Fahrenheit");
         tempCels = (tempFahr - 32) * 5 / 9;
         Console.WriteLine($"Fahrenheit in Celsius is {tempCels}.");
     }
-    public static void CelsToKelv()
+    public static void CelsiusToKelvin()
     {
         double tempCels, tempKelv;
         tempCels = ReadTemperature("Celsius");
-        tempKelv = tempCels + 273.15;
+        tempKelv = tempCels + ValueForConversionOfKelvin;
         Console.WriteLine($"Celsius in Kelvin is {tempKelv}.");
     }
-    public static void KelvToCels()
+    public static void KelvinToCelsius()
     {
         double tempKelv, tempCels, tempFahr;
         tempKelv = ReadTemperature("Kelvin");
-        tempCels = tempKelv - 273.15;
+        tempCels = tempKelv - ValueForConversionOfKelvin;
         Console.WriteLine($"Kelvin in Celsius is {tempCels}.");
 
         Console.WriteLine();
@@ -64,7 +69,7 @@ class Program
         if(userInput == "y")
         {
             Console.WriteLine("Now converting that Kelvin back to Fahrenheit:");
-            tempFahr = ((tempKelv - 273.15) * 9 / 5) + 32;
+            tempFahr = ((tempKelv - ValueForConversionOfKelvin) * 9 / 5) + 32;
             Console.WriteLine($"Same Kelvin in Fahrenheit is {tempFahr}.");
         }
         else
